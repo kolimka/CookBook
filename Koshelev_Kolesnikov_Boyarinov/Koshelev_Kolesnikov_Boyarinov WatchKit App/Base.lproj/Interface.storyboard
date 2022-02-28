@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19455" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch44"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19454"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc">
+                    <items>
+                        <imageView width="125" height="125" alignment="center" verticalAlignment="center" image="logo" id="5bF-ys-n8H"/>
+                        <label width="122" alignment="center" verticalAlignment="center" text="CookBook" id="gPV-mK-HGF">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <segue destination="cBN-Is-1LQ" kind="relationship" relationship="nextPage" id="RYN-TI-sbP"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="219.52173913043478" y="344.55357142857144"/>
+        </scene>
+        <!--Table RecipesIC-->
+        <scene sceneID="eDX-5j-riX">
+            <objects>
+                <controller id="cBN-Is-1LQ" customClass="TableRecipesIC" customModule="Koshelev_Kolesnikov_Boyarinov_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="l1z-0b-VH7">
+                            <items>
+                                <tableRow identifier="tableRow" id="JJJ-2l-HDH" customClass="RowTable" customModule="Koshelev_Kolesnikov_Boyarinov_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="jXX-JU-ab0">
+                                        <items>
+                                            <imageView width="30" height="30" alignment="center" verticalAlignment="center" image="swift" catalog="system" id="zyn-Mn-KQ4">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                            <label width="74" height="20" alignment="center" verticalAlignment="center" text="RecName" id="Hwo-EW-tlA"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="rowPicture" destination="zyn-Mn-KQ4" id="nP9-oX-2wv"/>
+                                        <outlet property="rowRecipeName" destination="Hwo-EW-tlA" id="8bN-pz-ehB"/>
+                                        <segue destination="Ne0-SL-qGB" kind="push" id="T38-FC-DW0"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="l1z-0b-VH7" id="EdT-fC-j9m"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="433.86956521739125" y="344.55357142857144"/>
+        </scene>
+        <!--Detail RecipelC-->
+        <scene sceneID="6rr-JT-jUb">
+            <objects>
+                <controller id="Ne0-SL-qGB" customClass="DetailRecipelC" customModule="Koshelev_Kolesnikov_Boyarinov_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="Z96-t4-MYd">
+                            <items>
+                                <imageView width="24" height="24" alignment="center" verticalAlignment="center" id="kYu-uA-FHg"/>
+                                <label alignment="center" verticalAlignment="center" text="name" id="p3X-V4-zqH"/>
+                            </items>
+                        </group>
+                        <imageView alignment="center" id="sng-IP-Hmb"/>
+                        <group width="1" alignment="left" layout="vertical" id="0P1-qR-KVb">
+                            <items>
+                                <label alignment="left" text="Автор:" id="BTu-Yg-RJf"/>
+                                <label alignment="left" text="authorName" id="EeO-hA-sKM"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="OBl-Po-IQ0">
+                            <items>
+                                <label alignment="left" text="Описание:" id="Ems-YX-cFi"/>
+                                <button alignment="left" id="kke-ed-5EA">
+                                    <group key="contentGroup" width="1" alignment="left" id="min-1a-Zwz">
+                                        <items>
+                                            <label alignment="left" text="recipeText" id="o3r-YK-4cf"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <segue destination="PkP-q4-r30" kind="modal" id="zm6-bH-kh0"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <slider width="1" alignment="left" maximum="5" steps="3" minimumImage="star" catalog="system" maximumImage="star.fill" id="Oes-Zo-hcM">
+                            <color key="color" red="0.97254901960784312" green="0.70196078431372544" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                        </slider>
+                    </items>
+                    <connections>
+                        <outlet property="authorRecipe" destination="EeO-hA-sKM" id="eVa-sw-m0f"/>
+                        <outlet property="iconRecipe" destination="kYu-uA-FHg" id="3uU-hB-3B4"/>
+                        <outlet property="imageRecipe" destination="sng-IP-Hmb" id="lu2-xd-9Bn"/>
+                        <outlet property="nameRecipe" destination="p3X-V4-zqH" id="vEd-gb-MJ3"/>
+                        <outlet property="ratingRecipe" destination="Oes-Zo-hcM" id="H6r-yr-Erx"/>
+                        <outlet property="textRecipe" destination="o3r-YK-4cf" id="Gbz-US-ekM"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="677" y="353"/>
+        </scene>
+        <!--Recipe DescriptionIC-->
+        <scene sceneID="0EL-rd-Wio">
+            <objects>
+                <controller id="PkP-q4-r30" customClass="RecipeDescriptionIC" customModule="Koshelev_Kolesnikov_Boyarinov_WatchKit_Extension">
+                    <items>
+                        <label width="1" alignment="left" text="recipeText" textAlignment="justified" numberOfLines="0" id="9Ul-wc-dPs"/>
+                    </items>
+                    <connections>
+                        <outlet property="fullRecipeLabel" destination="9Ul-wc-dPs" id="Jw2-Qo-tQ4"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="901.73913043478251" y="358.97321428571428"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="48" height="48"/>
+        <image name="star" catalog="system" width="128" height="115"/>
+        <image name="star.fill" catalog="system" width="128" height="115"/>
+        <image name="swift" catalog="system" width="128" height="112"/>
+    </resources>
+</document>
